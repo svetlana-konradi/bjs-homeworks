@@ -1,9 +1,18 @@
 function calculateTotalMortgage(percent, contribution, amount, date) {
-    // код для задачи №1 писать здесь
-    // return totalAmount;
+    let creditAmount = (amount - contribution);
+    let numberMonths = (date.getFullYear() - new Date().getFullYear()) * 12 + (date.getMonth() - new Date().getMonth());
+    let monthlyPayment = creditAmount * (percent / 100 + ((percent / 100) / (((1 + percent / 100) ** numberMonths) - 1)));
+
+    let totalAmount = contribution + monthlyPayment * numberMonths;
+
+    return totalAmount;    
 }
 
 function getGreeting(name) {
-    // код для задачи №2 писать здесь
-    // return greeting;
+    let greeting = (`Привет Мир! Меня зовут ${name}.`)
+    if (name == null || name == undefined || name == ""){
+        greeting = (`Привет Мир! Меня зовут Аноним.`);
+    }
+    
+    return greeting;
 }
