@@ -1,14 +1,12 @@
 "use strict";
 function getResult(a,b,c){
     let d = Math.pow(b, 2) - 4 * a * c;
-    let x;
+    let x = [];
     if (d > 0) {
         x = [((- b + Math.sqrt(d)) / (2 * a)), ((- b - Math.sqrt(d)) / (2 * a))];
     } else if (d == 0) {
-        x = [(-b + 2 * a)];
-    } else {
-        x = [];
-    }
+        x = [(-b / (2 * a))];
+    } 
     return x;
 }
 
@@ -29,9 +27,8 @@ function getAverageMark(marks){
 }
 
 function askDrink(name,dateOfBirthday){
-    let today = new Date();
     let result = 0;
-    if ((today.getFullYear() - dateOfBirthday.getFullYear()) >= 18) {
+    if ((new Date().getFullYear() - dateOfBirthday.getFullYear()) >= 18) {
         result = (`Не желаете ли олд-фэшн, ${name}?`);
     } else {
         result = (`Сожалею, ${name}, но я не могу вам продать алкоголь. Зато могу предложить вам замечательный клюквенный компот!`);
