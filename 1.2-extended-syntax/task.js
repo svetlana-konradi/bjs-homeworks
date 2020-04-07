@@ -27,12 +27,9 @@ function getAverageMark(marks){
 }
 
 function askDrink(name,dateOfBirthday){
-    let result = 0;
     if ((new Date().getFullYear() - dateOfBirthday.getFullYear()) >= 18) {
-        result = (`Не желаете ли олд-фэшн, ${name}?`);
+        return `Не желаете ли олд-фэшн, ${name}?`;
     } else {
-        result = (`Сожалею, ${name}, но я не могу вам продать алкоголь. Зато могу предложить вам замечательный клюквенный компот!`);
+        return `Сожалею, ${name}, но я не могу вам продать алкоголь. Зато могу предложить вам замечательный клюквенный компот!`;
     }
-
-    return result;
 }
