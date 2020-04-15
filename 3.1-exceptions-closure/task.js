@@ -22,16 +22,12 @@ function validateCount(count) {
 // Задача 2
 
 class Triangle {
-    constructor(a, b, c) {
+    constructor({a, b, c}) {
         this.a = a;
         this.b = b;
         this.c = c;
-        try {
-            if (((this.a + this.b) < this.c) || ((this.a + this.c) < this.b) || ((this.b + this.c) < this.a)) {
-            };
-        } catch(e) {
-            console.log("Треугольник с такими сторонами не существует");
-        }
+        if (((this.a + this.b) < this.c) || ((this.a + this.c) < this.b) || ((this.b + this.c) < this.a)) {
+        throw new Error("Треугольник с такими сторонами не существует")};
     };
     
     getPerimeter() {
@@ -40,18 +36,18 @@ class Triangle {
     };
         
     getArea() {
+        this.p = p
         let p = this.getPerimeter() / 2;
         let area = Math.sqrt((this.p * (this.p - this.a) * (this.p - this.b) * (this.p - this.c)));
         return area;
     };
 };
-
-const getTriangle = (a, b, c) => {
-    let delta = new Triangle(a, b, c);
+function getTriangle(a, b, c) {
+    const delta = new Triangle({a, b, c});
+    return delta;
 };
-
 try {
-    getTriangle()
+    getTriangle(a, b, c);
 } catch(e) {
     console.log("Ошибка! Неправильный треугольник");
-}
+};
