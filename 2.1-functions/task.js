@@ -54,26 +54,42 @@ let data = {
 
 function getAverageScore(data){
     let marks = [];
-    let averageSum = 0;
-    let counter = 0;
-
+    let averageData ={};
     for (let prop in data){
       marks = data[prop]; 
-      console.log(`${prop}: ${getAverageMark(marks)}`);
-      for(let i = 0; i < marks.length; i++){
-        averageSum += marks[i];
-      };
-      counter += marks.length;
+    //   console.log(`${prop}: ${getAverageMark(marks)}`);
+      
     };
-
-    console.log(`average: ${averageSum / counter}` );
+    averageData = {
+        algebra: getAverageMark(marks),
+        gemetry: getAverageMark(marks),
+        russian: getAverageMark(marks),
+        physics: getAverageMark(marks),
+        music: getAverageMark(marks),
+        english: getAverageMark(marks),
+        poetry: getAverageMark(marks),
+        chemistry: getAverageMark(marks),
+        french: getAverageMark(marks),
+      }
+    return averageData;
 };
 
   function getAverageMark(marks){
       let marksSum = 0;
+//
+      let averageSum = 0;
+      let counter = 0;
+//
       for (let i = 0; i < marks.length; i++){
           marksSum += marks[i];
-      };    
+      };
+      //
+      for(let i = 0; i < marks.length; i++){
+        averageSum += marks[i];
+      };
+      counter += marks.length;
+      let average = averageSum / counter;
+      //
       return marksSum / marks.length;
   };
 

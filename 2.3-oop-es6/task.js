@@ -3,11 +3,12 @@
 // Задача 1
 
 class Weapon {
-    constructor(name, attack, durability, range) {
-        this.name = name;
-        this.attack = attack;
-        this.startDurability = durability;
-        this.range = range;
+    constructor({name, attack, durability, range}){
+        this.name = name,
+        this.attack = attack,
+        this.durability = durability,
+        this.range = range,
+        this.startDurability = durability
     }
 
     takeDamage(damage){

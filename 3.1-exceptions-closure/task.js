@@ -53,6 +53,5 @@ const getTriangle = (a, b, c) => {
 try {
     getTriangle()
 } catch(e) {
-    delete getTriangle();
     console.log("Ошибка! Неправильный треугольник");
 }
