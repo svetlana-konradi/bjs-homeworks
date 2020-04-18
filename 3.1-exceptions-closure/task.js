@@ -3,19 +3,18 @@
     // Задача 1
 
 function parseCount (count) {
-    if (Number.parseInt(count) == NaN){
-        const errorCount = new Error("Невалидное значение");
-        throw errorCount;
+    let parse = Number.parseInt(count);
+    if (Number.isNaN(parse) === true){
+        throw new Error("Невалидное значение");
     };    
-    return Number.parseInt(count);
+    return parse;
 };
 
 function validateCount(count) {
     try {
-        let valid = parseCount(count);
-        return valid;
+        parseCount(count);
     } catch(e) {
-        console.log('Невалидное значение');
+        console.log(e.message);
     }
 }
 
@@ -26,28 +25,26 @@ class Triangle {
         this.a = a;
         this.b = b;
         this.c = c;
-        if (((this.a + this.b) < this.c) || ((this.a + this.c) < this.b) || ((this.b + this.c) < this.a)) {
+        if (((a + b) < c) || ((a + c) < b) || ((b + c) < a)) {
         throw new Error("Треугольник с такими сторонами не существует")};
     };
     
     getPerimeter() {
-        let perimeter = this.a + this.b + this.c;
-        return perimeter;
+        return this.a + this.b + this.c;
     };
         
     getArea() {
-        this.p = p
-        let p = this.getPerimeter() / 2;
-        let area = Math.sqrt((this.p * (this.p - this.a) * (this.p - this.b) * (this.p - this.c)));
-        return area;
+        return Math.sqrt(((getPerimeter() / 2) * ((getPerimeter() / 2) - a) * ((getPerimeter() / 2) - b) * ((getPerimeter() / 2) - c)));
     };
 };
 function getTriangle(a, b, c) {
-    const delta = new Triangle({a, b, c});
-    return delta;
+    let delta = new Triangle({a, b, c});
+    try {
+        return delta;
+    } catch(e) {
+        console.log("Ошибка! Неправильный треугольник");
+    };
 };
-try {
-    getTriangle(a, b, c);
-} catch(e) {
-    console.log("Ошибка! Неправильный треугольник");
-};
+
+
+

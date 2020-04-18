@@ -10,15 +10,13 @@ class Weapon {
         this.range = range,
         this.startDurability = durability
     }
-
     takeDamage(damage){
         this.damage = damage;
         this.durability -= damage;
-        if ( this.durability < 0) {
+        if (this.durability < 0) {
             this.durability = 0;
         };
     }
-
     getDamage(){
         if (this.durability >= 0.3 * this.startDurability) {
             return this.attack;
@@ -28,7 +26,6 @@ class Weapon {
             return this.attack / 2;
         };
     }
-
     isBroken(){
         if (this.durability > 0){
             return false;
@@ -38,7 +35,7 @@ class Weapon {
     }
 };
 
-const arm = new Weapon('Рука', 1, Infinity, 1);
+const Arm = new Weapon('Рука', 1, Infinity, 1);
 const bow = new Weapon('Лук', 10, 200, 3);
 const sword = new Weapon('Меч', 25, 500, 1);
 const knife = new Weapon('Нож', 5, 300, 1);
@@ -126,8 +123,6 @@ class Bow extends Weapon {
       this.range = 3;
     }
   };
-  
-  const stormStaff = new StormStaff();
   
     //Задача 3
   
