@@ -4,7 +4,7 @@
 
 function parseCount (count) {
     let parse = Number.parseInt(count);
-    if (Number.isNaN(parse) === true){
+    if (Number.isNaN(parse)){
         throw new Error("Невалидное значение");
     };    
     return parse;
@@ -14,7 +14,7 @@ function validateCount(count) {
     try {
         parseCount(count);
     } catch(e) {
-        console.log(e.message);
+        throw new Error("Невалидное значение");
     }
 }
 
@@ -34,17 +34,16 @@ class Triangle {
     };
         
     getArea() {
-        return Math.sqrt(((getPerimeter() / 2) * ((getPerimeter() / 2) - a) * ((getPerimeter() / 2) - b) * ((getPerimeter() / 2) - c)));
+        let p = this.getPerimeter() / 2;
+        return Math.sqrt((p * (p - a) * (p - b) * (p - c)));
     };
 };
-function getTriangle(a, b, c) {
-    let delta = new Triangle({a, b, c});
+function getTriangle({a, b, c}) {
     try {
+        let delta = new Triangle({a, b, c});
         return delta;
     } catch(e) {
-        console.log("Ошибка! Неправильный треугольник");
-    };
+        throw new Error("Ошибка! Неправильный треугольник")
+        return new Triangle();
 };
-
-
-
+getTriangle(1, 2, 13);

@@ -35,7 +35,7 @@ class Weapon {
     }
 };
 
-const Arm = new Weapon('Рука', 1, Infinity, 1);
+const arm = new Weapon('Рука', 1, Infinity, 1);
 const bow = new Weapon('Лук', 10, 200, 3);
 const sword = new Weapon('Меч', 25, 500, 1);
 const knife = new Weapon('Нож', 5, 300, 1);

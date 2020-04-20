@@ -53,45 +53,39 @@ let data = {
 };
 
 function getAverageScore(data){
+    let dataAverageScore = data;
     let marks = [];
-    let averageData ={};
+
     for (let prop in data){
-      marks = data[prop]; 
-    //   console.log(`${prop}: ${getAverageMark(marks)}`);
-      
+        marks = data[prop]; 
+        dataAverageScore[prop] = getAverageMark(marks);
     };
-    averageData = {
-        algebra: getAverageMark(marks),
-        gemetry: getAverageMark(marks),
-        russian: getAverageMark(marks),
-        physics: getAverageMark(marks),
-        music: getAverageMark(marks),
-        english: getAverageMark(marks),
-        poetry: getAverageMark(marks),
-        chemistry: getAverageMark(marks),
-        french: getAverageMark(marks),
-      }
-    return averageData;
+
+    let average = 0
+    for (let j in dataAverageScore){
+        marks.push = dataAverageScore[j]; 
+        average = getAverageMark(marks);
+        dataAverageScore.average = average;
+    };
+    
+    return dataAverageScore;
 };
 
   function getAverageMark(marks){
       let marksSum = 0;
-//
-      let averageSum = 0;
-      let counter = 0;
-//
       for (let i = 0; i < marks.length; i++){
-          marksSum += marks[i];
-      };
-      //
-      for(let i = 0; i < marks.length; i++){
-        averageSum += marks[i];
-      };
-      counter += marks.length;
-      let average = averageSum / counter;
-      //
-      return marksSum / marks.length;
-  };
+        marksSum += marks[i];
+    };
+    return marksSum / marks.length;
+};
+
+getAverageScore(data)
+
+
+
+      
+
+  
 
 
 // Задача 3 
