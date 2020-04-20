@@ -1,5 +1,4 @@
 "use strict";
-
 // Задача 1
 
 class Weapon {

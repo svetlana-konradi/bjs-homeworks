@@ -28,22 +28,20 @@ class Triangle {
         if (((a + b) < c) || ((a + c) < b) || ((b + c) < a)) {
         throw new Error("Треугольник с такими сторонами не существует")};
     };
-    
     getPerimeter() {
         return this.a + this.b + this.c;
     };
-        
     getArea() {
         let p = this.getPerimeter() / 2;
         return Math.sqrt((p * (p - a) * (p - b) * (p - c)));
     };
 };
-function getTriangle({a, b, c}) {
+function getTriangle(a, b, c) {
     try {
         let delta = new Triangle({a, b, c});
         return delta;
     } catch(e) {
         throw new Error("Ошибка! Неправильный треугольник")
         return new Triangle();
+    };
 };
-getTriangle(1, 2, 13);
