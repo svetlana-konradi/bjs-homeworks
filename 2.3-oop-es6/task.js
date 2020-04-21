@@ -34,15 +34,61 @@ class Weapon {
     }
 };
 
-const arm = new Weapon('Рука', 1, Infinity, 1);
-const bow = new Weapon('Лук', 10, 200, 3);
-const sword = new Weapon('Меч', 25, 500, 1);
-const knife = new Weapon('Нож', 5, 300, 1);
-const staff = new Weapon('Посох', 8, 300, 2);
+const arm = new Weapon({
+    name: 'Рука',
+    attack: 1,
+    durability: Infinity,
+    range: 1,
+});
 
-const longBow = new Weapon('Длинный лук', 15, 200, 4);
-const ax = new Weapon('Секира', 27, 800, 1);
-const stormStaff = new Weapon('Посох Бури', 10, 300, 3);
+const bow = new Weapon({
+  name: 'Лук',
+  attack: 10,
+  durability: 200,
+  range: 3,
+});
+
+const sword = new Weapon({
+  name: 'Меч',
+  attack: 25,
+  durability: 500,
+  range: 1,
+});
+
+const knife = new Weapon({
+  name: 'Нож',
+  attack: 5,
+  durability: 300,
+  range: 1,
+});
+
+const staff = new Weapon({
+  name: 'Посох',
+  attack: 8,
+  durability: 300,
+  range: 2,
+});
+
+const longBow = new Weapon({
+  name: 'Длинный лук',
+  attack: 15,
+  durability: 200,
+  range: 4,
+});
+
+const ax = new Weapon({
+  name: 'Секира',
+  attack: 27,
+  durability: 800, 
+  range: 1,
+});
+
+const stormStaff = new Weapon({
+  name: 'Посох Бури',
+  attack: 10,
+  durability: 300,
+  range: 3,
+});
 
 // Задача 2
 
