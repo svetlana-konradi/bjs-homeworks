@@ -14,7 +14,7 @@ function validateCount(count) {
     try {
         parseCount(count);
     } catch(e) {
-        throw new Error("Невалидное значение");
+        return new Error("Невалидное значение");
     }
 }
 
@@ -25,23 +25,45 @@ class Triangle {
         this.a = a;
         this.b = b;
         this.c = c;
-        if (((a + b) < c) || ((a + c) < b) || ((b + c) < a)) {
-        throw new Error("Треугольник с такими сторонами не существует")};
     };
     getPerimeter() {
+        if (((this.a + this.b) < this.c) || ((this.a + this.c) < this.b) || ((this.b + this.c) < this.a)) {
+            throw new Error("Треугольник с такими сторонами не существует")
+        }
         return this.a + this.b + this.c;
     };
     getArea() {
         let p = this.getPerimeter() / 2;
-        return Math.sqrt((p * (p - a) * (p - b) * (p - c)));
+        if (((this.a + this.b) < this.c) || ((this.a + this.c) < this.b) || ((this.b + this.c) < this.a)) {
+            throw new Error("Ошибка! Неправильный треугольник")
+        };
+        return Math.sqrt((p * (p - this.a) * (p - this.b) * (p - this.c)));
     };
 };
+
 function getTriangle(a, b, c) {
     try {
-        let delta = new Triangle({a, b, c});
-        return delta;
+        return new Triangle({a, b, c});
     } catch(e) {
-        throw new Error("Ошибка! Неправильный треугольник")
-        return new Triangle();
+        return new Triangle({a, b, c});
     };
 };
+
+// либо я могу создать класс фейкового треугольника и вызывать его из блока catch
+/*
+class TriangleFake {
+    constructor({a, b, c}) {
+        this.a = a;
+        this.b = b;
+        this.c = c;
+        if (((a + b) < c) || ((a + c) < b) || ((b + c) < a)) {
+            throw new Error("Треугольник с такими сторонами не существует")};
+    };
+    getPerimeter() {
+        throw new Error("Ошибка! Неправильный треугольник")
+    };
+    getArea() {
+        throw new Error("Ошибка! Неправильный треугольник")
+    };
+};
+*/
