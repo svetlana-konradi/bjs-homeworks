@@ -43,23 +43,10 @@ function getTriangle(a, b, c) {
     try {
         return new Triangle({a, b, c});
     } catch(e) {
-        throw new Error ("Треугольник с такими сторонами не существует");
+        throw e;
         return {
             getPerimeter: () => new Error("Ошибка! Неправильный треугольник!"),
             getArea: () => new Error("Ошибка! Неправильный треугольник!")
         };
     };
 };
-
-
-
-// function getTriangle(a, b, c) {
-//     try {
-//         return new Triangle({a, b, c});
-//     } catch(e) {
-//         return {
-//             getPerimeter: () => new Error("Ошибка! Неправильный треугольник!"),
-//             getArea: () => new Error("Ошибка! Неправильный треугольник!")
-//         }
-//     };
-// };
