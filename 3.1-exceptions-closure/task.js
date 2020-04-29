@@ -12,7 +12,7 @@ function parseCount (count) {
 
 function validateCount(count) {
     try {
-        parseCount(count);
+        return parseCount(count);
     } catch(e) {
         return new Error("Невалидное значение");
     }
@@ -25,19 +25,17 @@ class Triangle {
         this.a = a;
         this.b = b;
         this.c = c;
-    };
-    getPerimeter() {
         if (((this.a + this.b) < this.c) || ((this.a + this.c) < this.b) || ((this.b + this.c) < this.a)) {
             throw new Error("Треугольник с такими сторонами не существует")
         }
+    };
+    getPerimeter() {
         return this.a + this.b + this.c;
     };
     getArea() {
         let p = this.getPerimeter() / 2;
-        if (((this.a + this.b) < this.c) || ((this.a + this.c) < this.b) || ((this.b + this.c) < this.a)) {
-            throw new Error("Ошибка! Неправильный треугольник")
-        };
-        return Math.sqrt((p * (p - this.a) * (p - this.b) * (p - this.c)));
+        let area = Math.sqrt((p * (p - this.a) * (p - this.b) * (p - this.c)));
+        return Number(area.toFixed(3));
     };
 };
 
@@ -45,25 +43,23 @@ function getTriangle(a, b, c) {
     try {
         return new Triangle({a, b, c});
     } catch(e) {
-        return new Triangle({a, b, c});
+        throw new Error ("Треугольник с такими сторонами не существует");
+        return {
+            getPerimeter: () => new Error("Ошибка! Неправильный треугольник!"),
+            getArea: () => new Error("Ошибка! Неправильный треугольник!")
+        };
     };
 };
 
-// либо я могу создать класс фейкового треугольника и вызывать его из блока catch
-/*
-class TriangleFake {
-    constructor({a, b, c}) {
-        this.a = a;
-        this.b = b;
-        this.c = c;
-        if (((a + b) < c) || ((a + c) < b) || ((b + c) < a)) {
-            throw new Error("Треугольник с такими сторонами не существует")};
-    };
-    getPerimeter() {
-        throw new Error("Ошибка! Неправильный треугольник")
-    };
-    getArea() {
-        throw new Error("Ошибка! Неправильный треугольник")
-    };
-};
-*/
+
+
+// function getTriangle(a, b, c) {
+//     try {
+//         return new Triangle({a, b, c});
+//     } catch(e) {
+//         return {
+//             getPerimeter: () => new Error("Ошибка! Неправильный треугольник!"),
+//             getArea: () => new Error("Ошибка! Неправильный треугольник!")
+//         }
+//     };
+// };

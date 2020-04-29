@@ -21,7 +21,7 @@ class Weapon {
             return this.attack;
         } else if (this.durability == 0) {
             this.attack = 0;
-        } else {
+        } else {        
             return this.attack / 2;
         };
     }
@@ -93,7 +93,7 @@ const stormStaff = new Weapon({
 // Задача 2
 
 class Arm extends Weapon {
-    constructor () {
+    constructor ({name, attack, durability, range}) {
       super();
       this.name = 'Рука';
       this.attack = 1;
@@ -103,7 +103,7 @@ class Arm extends Weapon {
   }
 
 class Bow extends Weapon {
-    constructor () {
+    constructor (name, attack, durability, range) {
       super();
       this.name = 'Лук';
       this.attack = 10;
@@ -113,7 +113,7 @@ class Bow extends Weapon {
   }
 
   class Sword extends Weapon {
-    constructor () {
+    constructor (name, attack, durability, range) {
      super();
      this.name = 'Меч';
      this.attack = 20;
@@ -123,7 +123,7 @@ class Bow extends Weapon {
  }
   
   class Knife extends Weapon {
-    constructor () {
+    constructor (name, attack, durability, range) {
       super();
       this.name = 'Нож';
       this.attack = 5;
@@ -133,7 +133,7 @@ class Bow extends Weapon {
   }
   
   class Staff extends Weapon {
-    constructor () {
+    constructor (name, attack, durability, range) {
       super();
       this.name = 'Посох';
       this.attack = 8;
@@ -143,7 +143,7 @@ class Bow extends Weapon {
   }
   
   class LongBow extends Bow {
-    constructor () {
+    constructor (name, attack, durability, range) {
       super();
       this.name = 'Длинный лук';
       this.attack = 15;
@@ -152,7 +152,7 @@ class Bow extends Weapon {
   };
   
   class Ax extends Sword {
-    constructor () {
+    constructor (name, attack, durability, range) {
       super();
       this.name = 'Секира';
       this.attack = 27;
@@ -161,7 +161,7 @@ class Bow extends Weapon {
   };
   
   class StormStaff extends Staff {
-    constructor () {
+    constructor (name, attack, durability, range) {
       super();
       this.name = 'Посох бури';
       this.attack = 10;
