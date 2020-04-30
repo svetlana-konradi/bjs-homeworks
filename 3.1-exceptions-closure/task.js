@@ -14,14 +14,14 @@ function validateCount(count) {
     try {
         return parseCount(count);
     } catch(e) {
-        return new Error("Невалидное значение");
+        return e;
     }
 }
 
 // Задача 2
 
 class Triangle {
-    constructor({a, b, c}) {
+    constructor(a, b, c) {
         this.a = a;
         this.b = b;
         this.c = c;
@@ -41,12 +41,11 @@ class Triangle {
 
 function getTriangle(a, b, c) {
     try {
-        return new Triangle({a, b, c});
+        return new Triangle(a, b, c);
     } catch(e) {
-        throw e;
         return {
-            getPerimeter: () => new Error("Ошибка! Неправильный треугольник!"),
-            getArea: () => new Error("Ошибка! Неправильный треугольник!")
+            getPerimeter: "Ошибка! Неправильный треугольник!",
+            getArea: "Ошибка! Неправильный треугольник!"
         };
     };
 };
