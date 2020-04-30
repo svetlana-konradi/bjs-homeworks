@@ -13,9 +13,10 @@ function sum(...args) {
   };
 
 function compareArrays(arr1, arr2){
-    let check = arr1.every(function (element, index) {
-        return element === arr2[index];
-        });
+    if (arr1.length !== arr2.length) {
+        return false
+    };
+    let check = arr1.every((element, index) => element === arr2[index]);
         return check;
 };
 
@@ -23,13 +24,14 @@ function memorize(fn, limit){
     let memory = [];
 
     function fn(...args){
-        if (memory.find(compareArrays(element.args, args) === true)){
+        //нахожу в memory элемент(объект) у которого ключ args совпадает с args из fn
+        if (memory.find(element => compareArrays(element.args, args) === true)){
             return memory.result
         } else {
             let result = fn(...args);
             memory.push({
-                args: args,
-                result: result
+                args,
+                result
             });
             if (memory.length > limit) {
                 memory.shift();
@@ -39,6 +41,7 @@ function memorize(fn, limit){
     };
 };
 
+const testArray = [[1,2,3], [1,2], [1,2,3], [1,2], [9,5,2,4]];
 function testCase(testFunction, timer) {
     console.time(timer);
     testArray.forEach(function(arr){
@@ -49,11 +52,21 @@ function testCase(testFunction, timer) {
     console.timeEnd(timer);
 };
 
-const mSum = memorize(sum, 5);
-sum(3, 4)
+// const mSum = memorize(sum, 5);
+// sum(3, 4)
+
+// testCase(sum)
 
 
+// default: 25049мс - таймер закончился - sum с замедлением
+// default: 3020мс - таймер закончился - модифицированная sum с замедлением
 
+// default: 3мс - таймер закончился - модифицированная sum без замедления
+// default: 1мс - таймер закончился - sum без замедления
+
+/*Вывод: модифицированная функция с замедлением выполняется находит результат идентичных 
+операций в памяти и не выполняет других вычислений, а без замеджения выполняется медленнее 
+из-за постоянных обращений к памяти.*/
 
 
 
