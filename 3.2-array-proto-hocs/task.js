@@ -24,7 +24,6 @@ function memorize(fn, limit){
     let memory = [];
 
     function fn(...args){
-        //нахожу в memory элемент(объект) у которого ключ args совпадает с args из fn
         if (memory.find(element => compareArrays(element.args, args) === true)){
             return memory.result
         } else {
@@ -67,7 +66,3 @@ function testCase(testFunction, timer) {
 /*Вывод: модифицированная функция с замедлением выполняется находит результат идентичных 
 операций в памяти и не выполняет других вычислений, а без замеджения выполняется медленнее 
 из-за постоянных обращений к памяти.*/
-
-
-
-  
