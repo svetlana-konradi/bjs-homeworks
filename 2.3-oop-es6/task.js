@@ -93,81 +93,89 @@ const stormStaff = new Weapon({
 // Задача 2
 
 class Arm extends Weapon {
-    constructor ({name, attack, durability, range}) {
-      super();
-      this.name = 'Рука';
-      this.attack = 1;
-      this.durability = Infinity;
-      this.range = 1;
+    constructor () {
+      super({
+        name: 'Рука',
+        attack: 1,
+        durability: Infinity,
+        range: 1
+      });
     }
   }
 
 class Bow extends Weapon {
-    constructor (name, attack, durability, range) {
-      super();
-      this.name = 'Лук';
-      this.attack = 10;
-      this.durability = 200;
-      this.range = 3;
+    constructor () {
+      super({
+        name: 'Лук',
+        attack: 10,
+        durability: 200,
+        range: 3
+      });
     }
   }
 
   class Sword extends Weapon {
-    constructor (name, attack, durability, range) {
-     super();
-     this.name = 'Меч';
-     this.attack = 20;
-     this.durability = 10;
-     this.range = 1;
-   }
- }
+    constructor () {
+      super({
+        name: 'Меч',
+        attack: 20,
+        durability: 10,
+        range: 1
+      });
+    }
+  }
   
   class Knife extends Weapon {
-    constructor (name, attack, durability, range) {
-      super();
-      this.name = 'Нож';
-      this.attack = 5;
-      this.durability = 300;
-      this.range = 1;
+    constructor () {
+      super({
+        name: 'Нож',
+        attack: 5,
+        durability: 300,
+        range: 1
+      });
     }
   }
   
   class Staff extends Weapon {
-    constructor (name, attack, durability, range) {
-      super();
-      this.name = 'Посох';
-      this.attack = 8;
-      this.durability = 300;
-      this.range = 2;
+    constructor () {
+      super({
+        name: 'Посох',
+        attack: 8,
+        durability: 300,
+        range: 2
+      });
     }
   }
   
   class LongBow extends Bow {
-    constructor (name, attack, durability, range) {
-      super();
-      this.name = 'Длинный лук';
-      this.attack = 15;
-      this.range = 4;
+    constructor () {
+      super({
+        name: 'Длинный лук',
+        attack: 15,
+        range: 4
+      });
     }
-  };
+  }
   
   class Ax extends Sword {
-    constructor (name, attack, durability, range) {
-      super();
-      this.name = 'Секира';
-      this.attack = 27;
-      this.durability = 800;
+    constructor () {
+      super({
+        name: 'Секира',
+        attack: 27,
+        durability: 800
+      });
     }
-  };
+  }
   
   class StormStaff extends Staff {
-    constructor (name, attack, durability, range) {
-      super();
-      this.name = 'Посох бури';
-      this.attack = 10;
-      this.range = 3;
+    constructor () {
+      super({
+        name: 'Посох бури',
+        attack: 10,
+        range: 3
+      });
     }
-  };
+  }
   
     //Задача 3
   
@@ -211,5 +219,3 @@ class Bow extends Weapon {
         return totalAverage / Object.keys(this.grades).length;
       }
     }
-
-    
