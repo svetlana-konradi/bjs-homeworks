@@ -23,11 +23,12 @@ function compareArrays(arr1, arr2){
 function memorize(fn, limit){
     let memory = [];
 
-    function fn(...args){
-        if (memory.find(element => compareArrays(element.args, args) === true)){
-            return memory.result
+    return (...args) => {
+        const findArgs = memory.find(element => compareArrays(element.args, args));
+        if (findArgs !== undefined){
+            return findArgs;
         } else {
-            let result = fn(...args);
+            const sum = fn(...args);
             memory.push({
                 args,
                 result
@@ -35,7 +36,7 @@ function memorize(fn, limit){
             if (memory.length > limit) {
                 memory.shift();
             };
-            return result;
+            return sum;
         };
     };
 };
