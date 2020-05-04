@@ -1,6 +1,6 @@
 "use strict";
 
-    // Задача 1
+// Задача 1
 
 function parseCount (count) {
     let parse = Number.parseInt(count);
@@ -43,9 +43,9 @@ function getTriangle(a, b, c) {
     try {
         return new Triangle(a, b, c);
     } catch(e) {
-        return {
-            getPerimeter: "Ошибка! Неправильный треугольник!",
-            getArea: "Ошибка! Неправильный треугольник!"
-        };
+        const triangle = {};
+        triangle.getArea = () => {return "Ошибка! Неправильный треугольник!"};
+        triangle.getPerimeter = () => {return "Ошибка! Неправильный треугольник!"};
+        return triangle;
     };
 };
