@@ -25,19 +25,18 @@ function memorize(fn, limit){
 
     return (...args) => {
         const findArgs = memory.find(element => compareArrays(element.args, args));
-        if (findArgs !== undefined){
-            return findArgs;
-        } else {
-            const sum = fn(...args);
-            memory.push({
-                args,
-                result
-            });
-            if (memory.length > limit) {
-                memory.shift();
-            };
-            return sum;
+        if (findArgs) {
+            return findArgs.result;
+        } 
+        const result = fn(...args);
+        memory.push({
+            args,
+            result
+        });
+        if (memory.length > limit) {
+            memory.shift();
         };
+        return result;
     };
 };
 
